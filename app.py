@@ -10,7 +10,7 @@ filters_available = [
     "detail",
     "edge_enhance",
     "edge_enhance_more",
-    "emboss","find_edges",
+    "emboss",
     "sharpen","smooth",
     "smooth_more"
 ]
