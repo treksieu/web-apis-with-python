@@ -42,31 +42,41 @@ def index():
 
 @app.get("/dict")
 
-def dictionary(word : str):
+def dictionary(words : List[str] = Query(None)):
 
-    if not word:
+    if not words:
         response = {"status":"error","data":"pls choose a word"}
         return jsonable_encoder(response)
 
-    # Try to find an exact match
+    #initialize the response
 
-    definitions = match_exact(word)
-    if definitions:
-        response = {"status":"success","word":word, "data":definitions}
-        return jsonable_encoder(response)
+    response = {"words":[]}
 
-    # Try to find an approximate match
+    for word in words:
 
-    definitions = match_like(word)
-    if definitions:
-        response = {"status":"partial","word":word,"data":definitions}    
-        return jsonable_encoder(response)
+        # Try to find an exact match
 
-    else:
-        response = {"status":"error","word": word,"data":"word not found"}
-        return jsonable_encoder(response)
+        definitions = match_exact(word)
+        if definitions:
+            response  [ "words"].append({ "status":"success","word":word, "data":definitions})
+
+        else:
+        # Try to find an approximate match
+
+            definitions = match_like(word)
+            if definitions:
+                response  ["words"].append( {"status":"partial","word":word,"data":definitions})
+            
+            else:
+                response [words].append ({"status":"error","word": word,"data":"word not found"})
+    return jsonable_encoder(response)
 
 @app.post("/dict")
+
+def add(word : str):
+    return {"word": word}
+
+@app.put("/dict")
 
 def add(word : str):
     return {"word": word}
