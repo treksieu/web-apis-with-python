@@ -48,7 +48,7 @@ def dictionary(words : List[str] = Query(None)):
         response = {"status":"error","data":"pls choose a word"}
         return jsonable_encoder(response)
 
-    #initialize the responses
+    #initialize the response
 
     response = {"words":[]}
 
