@@ -1,3 +1,4 @@
+aiohttp[speedups]
 appdirs==1.4.4
 asgiref==3.3.4
 backcall==0.2.0
@@ -10,7 +11,6 @@ gunicorn==20.1.0
 h11==0.12.0
 httptools==0.2.0
 ipykernel==5.5.5
-ipython==7.24.0
 ipython-genutils==0.2.0
 itsdangerous==2.0.1
 jedi==0.18.0
@@ -39,10 +39,8 @@ six==1.16.0
 starlette==0.14.2
 toml==0.10.2
 tornado==6.1
-traitlets==5.0.5
 typing-extensions==3.10.0.0
 uvicorn==0.14.0
-uvloop==0.15.2
 watchgod==0.7
 wcwidth==0.2.5
 websockets==9.1
